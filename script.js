@@ -72,3 +72,15 @@ function generateGameId() {
     .toUpperCase();
 
 }
+
+function goHome() {
+
+  document.getElementById("homeScreen").style.display = "block";
+
+  document.getElementById("joinScreen").style.display = "none";
+
+  document.getElementById("newGameScreen").style.display = "none";
+
+  document.getElementById("gameScreen").style.display = "none";
+
+}
