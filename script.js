@@ -27,10 +27,7 @@ function joinGame() {
 
   }
 
-  alert(
-    "Joined game: " + gameId +
-    "\nPlayer: " + playerName
-  );
+  openGameScreen(gameId, playerName);
 
 }
 
@@ -46,8 +43,32 @@ function createGame() {
 
   }
 
-  alert(
-    "Game created by: " + hostName
-  );
+  const gameId = generateGameId();
+
+  openGameScreen(gameId, hostName);
+
+}
+
+function openGameScreen(gameId, playerName) {
+
+  document.getElementById("joinScreen").style.display = "none";
+  document.getElementById("newGameScreen").style.display = "none";
+
+  document.getElementById("gameScreen").style.display = "block";
+
+  document.getElementById("gameTitle").innerText =
+    "Game ID: " + gameId;
+
+  document.getElementById("playerInfo").innerText =
+    "Player: " + playerName;
+
+}
+
+function generateGameId() {
+
+  return Math.random()
+    .toString(36)
+    .substring(2, 8)
+    .toUpperCase();
 
 }
